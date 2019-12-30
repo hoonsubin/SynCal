@@ -7,7 +7,8 @@ import { AppPage } from './declarations';
 import Menu from './components/Menu';
 import Home from './pages/Home';
 import List from './pages/List';
-import { home, list } from 'ionicons/icons';
+import Calendar from './pages/Calendar';
+import { home, list, calendar } from 'ionicons/icons';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -38,6 +39,11 @@ const appPages: AppPage[] = [
     title: 'List',
     url: '/home/list',
     icon: list
+  },
+  {
+    title: 'Calendar',
+    url: '/calendar',
+    icon: calendar
   }
 ];
 
@@ -49,7 +55,8 @@ const App: React.FC = () => (
         <IonRouterOutlet id="main">
           <Route path="/home" component={Home} exact={true} />
           <Route path="/home/list" component={List} exact={true} />
-          <Route path="/" render={() => <Redirect to="/home"/> } exact={true} />
+          <Route path="/calendar" component={Calendar} exact={true} />
+          <Route path="/" render={() => <Redirect to="/calendar"/> } exact={true} />
         </IonRouterOutlet>
       </IonSplitPane>
     </IonReactRouter>

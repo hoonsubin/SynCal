@@ -1,12 +1,7 @@
 import {
   IonContent,
   IonHeader,
-  IonIcon,
-  IonItem,
-  IonLabel,
-  IonList,
   IonMenu,
-  IonMenuToggle,
   IonTitle,
   IonToolbar
 } from '@ionic/react';
@@ -26,6 +21,10 @@ const Menu: React.FunctionComponent<MenuProps> = ({ appPages }) => (
       </IonToolbar>
     </IonHeader>
     <IonContent>
+      
+      <h1>This is where the chat goes</h1>
+      {/* Add a chat front end here later */}
+      {/* 
       <IonList>
         {appPages.map((appPage, index) => {
           return (
@@ -38,6 +37,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({ appPages }) => (
           );
         })}
       </IonList>
+    */}
     </IonContent>
   </IonMenu>
 );
