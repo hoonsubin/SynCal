@@ -14,8 +14,6 @@ const Menu: React.FunctionComponent<MenuProps> = ({ appPages }) => (
 	<IonMenu contentId='main' type='overlay'>
 		<IonContent>
 			<UsersPage></UsersPage>
-		</IonContent>
-		<IonContent>
 			<ChatPage></ChatPage>
 		</IonContent>
 	</IonMenu>
