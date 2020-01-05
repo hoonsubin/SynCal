@@ -5,7 +5,9 @@ import {
 	IonMenuButton,
 	IonPage,
 	IonTitle,
-	IonToolbar
+	IonToolbar,
+	IonButton,
+	IonIcon
 } from '@ionic/react';
 import React from 'react';
 import { Calendar as BigCalendar, momentLocalizer } from 'react-big-calendar';
@@ -16,6 +18,8 @@ import moment from 'moment';
 
 import { events as calendarEvents } from '../db';
 
+import { cog } from 'ionicons/icons';
+
 //import '../assets/scss/_plugin-react-big-calendar.scss';
 
 //todo: add crud functionality to calendar
@@ -24,7 +28,9 @@ const localizer = momentLocalizer(moment);
 
 const CalendarPage: React.FC = () => {
 	// add calendar control functions here
-
+	function clickedSettings() {
+		console.log('you clicked the settings menu button');
+	}
 	return (
 		<IonPage>
 			<IonHeader>
@@ -33,6 +39,11 @@ const CalendarPage: React.FC = () => {
 						<IonMenuButton />
 					</IonButtons>
 					<IonTitle>Calendar</IonTitle>
+					<IonButtons slot='end'>
+						<IonButton slot='primary' onClick={() => clickedSettings()}>
+							<IonIcon slot='icon-only' icon={cog} />
+						</IonButton>
+					</IonButtons>
 				</IonToolbar>
 			</IonHeader>
 			<IonContent>

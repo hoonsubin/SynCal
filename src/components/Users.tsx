@@ -1,21 +1,15 @@
-import {
-	IonContent,
-	IonList,
-	IonItem,
-	IonIcon
-} from '@ionic/react';
+import { IonList, IonItem, IonIcon } from '@ionic/react';
 import { person } from 'ionicons/icons';
 import React from 'react';
 
 //todo: add chat function
 
-const UsersPage: React.FC = () => {
-	// add calendar control functions here
-
-	return (
-		<MockUserList></MockUserList>
-	);
-};
+export default class Users extends React.Component {
+	state = {};
+	render() {
+		return <MockUserList></MockUserList>;
+	}
+}
 
 const MockUserList = () => {
 	const items = [1, 2, 3, 4, 5, 6].map(x => {
@@ -32,5 +26,3 @@ const MockUserList = () => {
 
 	return <IonList>{items}</IonList>;
 };
-
-export default UsersPage;

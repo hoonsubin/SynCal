@@ -1,0 +1,11 @@
+.users-badge {
+	position: absolute;
+	opacity: 0.9;
+	top: -0.1rem;
+	right: -0.1rem;
+	border-radius: 100%;
+}
+
+ion-icon {
+	margin-right: 1rem;
+}
