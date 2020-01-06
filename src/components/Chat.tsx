@@ -1,19 +1,20 @@
 import {
-	IonButton,
-	IonGrid,
-	IonRow,
-	IonCol,
 	IonTextarea,
-	IonIcon
+	IonIcon,
+	IonContent,
+	IonFab,
+	IonFabButton
 } from '@ionic/react';
 import React from 'react';
 import { paperPlane } from 'ionicons/icons';
 import { ChatFeed } from 'react-bell-chat';
+import './chat.css';
 
 //todo: add chat function
 export default class Chats extends React.Component {
 	state = {
-		message: '',
+		currentMessage: '',
+		thisAuthorId: 2,
 		messages: [
 			{
 				id: 1,
@@ -54,43 +55,37 @@ export default class Chats extends React.Component {
 
 	render() {
 		return (
-			<IonGrid>
-				<IonRow>
-					{/*todo: add a message list component*/}
-					<ChatFeed
-						messages={this.state.messages} // Array: list of message objects
-						authors={this.state.authors} // Array: list of authors
-						yourAuthorId={2} // Number: Your author id (corresponds with id from list of authors)
-					/>
-				</IonRow>
-				<IonRow className='ion-align-items-end'>
-					<IonCol>
-						<IonTextarea
-							placeholder='Chat message'
-							onChange={e => this.setState({ message: e })}
-						></IonTextarea>
-					</IonCol>
-					<IonCol size='3'>
-						<IonButton
-							color='primary'
-							type='submit'
-							expand='block'
-							size='large'
-							onClick={() => this.sendChat()}
-						>
-							<IonIcon slot='icon-only' icon={paperPlane}></IonIcon>
-						</IonButton>
-					</IonCol>
-				</IonRow>
-			</IonGrid>
+			<IonContent>
+				<ChatFeed
+					messages={this.state.messages} // Array: list of message objects
+					authors={this.state.authors} // Array: list of authors
+					yourAuthorId={this.state.thisAuthorId} // Number: Your author id (corresponds with id from list of authors)
+				/>
+				<IonFab vertical='bottom' horizontal='start'>
+					<IonTextarea className='chat-input'
+						placeholder='Chat message'
+						onChange={e => this.setState({ message: e })}
+					></IonTextarea>
+
+				</IonFab>
+
+				<IonFab vertical='bottom' horizontal='end'>
+					<IonFabButton onClick={() => this.sendChat()}>
+						<IonIcon icon={paperPlane}></IonIcon>
+					</IonFabButton>
+				</IonFab>
+
+
+			</IonContent>
+
 		);
 	}
 	// local functions goes here
 	sendChat() {
-		let { message } = this.state;
+		let { currentMessage } = this.state;
 
-		console.log('you have sent ' + message);
+		console.log('you have sent ' + currentMessage);
 
-		message = '';
+		currentMessage = '';
 	}
 }
