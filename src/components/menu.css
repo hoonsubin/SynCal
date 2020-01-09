@@ -1,8 +1,8 @@
 .users-badge {
 	position: absolute;
 	opacity: 0.9;
-	top: -0.1rem;
-	right: -0.1rem;
+	top: 0.3rem;
+    right: 0.3rem;
 	border-radius: 100%;
 }
 
